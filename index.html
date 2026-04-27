@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dawid Ziarno | Portfolio</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
+      background: #f9f9f9;
+            line-height: 1.7;
+}
+    nav {
+            position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10, 36, 99, 0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 2.5rem;
+      z-index: 1000;
+}
+    nav .logo { color: #fff; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: #cdd9f5; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        nav ul a:hover { color: #fff; }
+          #hero {
+            min-height: 100vh;
+      background: linear-gradient(135deg, #0a2463 0%, #1a56b0 60%, #3a86ff 100%);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 6rem 2rem 4rem; color: #fff;
+      }
+    .hero-avatar {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; margin-bottom: 1.5rem;
+      border: 3px solid rgba(255,255,255,0.4);
+}
+    #hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: 1px; }
+    #hero p.tagline { font-size: 1.2rem; margin-top: 0.6rem; color: #cdd9f5; font-weight: 400; }
+    .hero-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
+            .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.35); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.88rem; color: #e8efff; }
+    .btn-group { margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn { padding: 0.75rem 2rem; border-radius: 30px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.25s; cursor: pointer; }
+    .btn-primary { background: #fff; color: #0a2463; }
+    .btn-primary:hover { background: #e8efff; transform: translateY(-2px); }
+    .btn-outline { border: 2px solid #fff; color: #fff; }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+    section { padding: 5rem 2rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+          .section-label { text-transform: uppercase; letter-spacing: 3px; font-size: 0.78rem; color: #3a86ff; font-weight: 700; margin-bottom: 0.4rem; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: #0a2463; margin-bottom: 1.2rem; }
+            .divider { width: 50px; height: 4px; background: linear-gradient(90deg, #3a86ff, #1a56b0); border-radius: 2px; margin-bottom: 2.5rem; }
+    #about { background: #fff; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+          .about-text p { color: #444; margin-bottom: 1rem; }
+    .about-contact { margin-top: 1.5rem; }
+    .about-contact a { display: inline-block; color: #1a56b0; text-decoration: none; font-weight: 500; margin-right: 1.5rem; }
+    .about-contact a:hover { text-decoration: underline; }
+    .about-highlights { background: linear-gradient(135deg, #0a2463 0%, #1a56b0 100%); border-radius: 16px; padding: 2rem; color: #fff; }
+    .about-highlights h3 { margin-bottom: 1.2rem; font-size: 1.1rem; letter-spacing: 0.5px; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; }
+    .highlight-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .highlight-item p { font-size: 0.93rem; color: #cdd9f5; margin: 0; }
+    .highlight-item strong { color: #fff; }
+          #education { background: #f4f7ff; }
+          .edu-card { background: #fff; border-radius: 16px; padding: 2rem 2.5rem; box-shadow: 0 4px 20px rgba(10,36,99,0.08); display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+          .edu-card h3 { font-size: 1.35rem; color: #0a2463; }
+          .edu-card .degree { color: #3a86ff; font-weight: 600; margin-top: 0.25rem; }
+    .edu-card .date { background: #e8efff; color: #1a56b0; padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.88rem; font-weight: 600; white-space: nowrap; }
+        #experience { background: #fff; }
+        .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #3a86ff, #1a56b0); border-radius: 2px; }
+          .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-item::before { content: ''; position: absolute; left: -2.4rem; top: 0.4rem; width: 14px; height: 14px; background: #3a86ff; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 3px #3a86ff33; }
+          .timeline-item:last-child { margin-bottom: 0; }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .job-title { font-size: 1.15rem; font-weight: 700; color: #0a2463; }
+    .job-company { color: #3a86ff; font-weight: 600; font-size: 0.97rem; }
+    .job-location { color: #666; font-size: 0.88rem; }
+    .job-date { background: #e8efff; color: #1a56b0; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.83rem; font-weight: 600; white-space: nowrap; }
+          .job-bullets { margin-top: 0.8rem; padding-left: 1.2rem; }
+    .job-bullets li { color: #444; margin-bottom: 0.55rem; font-size: 0.96rem; }
+    #skills { background: #f4f7ff; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+    .skill-card { background: #fff; border-radius: 12px; padding: 1.2rem 1.5rem; box-shadow: 0 3px 14px rgba(10,36,99,0.07); display: flex; align-items: center; gap: 1rem; transition: transform 0.2s, box-shadow 0.2s; }
+          .skill-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(10,36,99,0.13); }
+    .skill-icon { width: 44px; height: 44px; background: linear-gradient(135deg, #3a86ff, #1a56b0); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .skill-card span { font-weight: 600; color: #0a2463; font-size: 0.97rem; }
+    #contact { background: linear-gradient(135deg, #0a2463 0%, #1a56b0 100%); color: #fff; text-align: center; }
+    #contact .section-label { color: #7eb3ff; }
+    #contact .section-title { color: #fff; }
+    #contact .divider { background: linear-gradient(90deg, #7eb3ff, #3a86ff); margin-left: auto; margin-right: auto; }
+    #contact p { color: #cdd9f5; max-width: 520px; margin: 0 auto 2rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .contact-link { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff; text-decoration: none; padding: 0.7rem 1.5rem; border-radius: 30px; font-weight: 500; transition: all 0.2s; }
+        .contact-link:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
+    footer { background: #060f2e; color: #556; text-align: center; padding: 1.5rem; font-size: 0.87rem; }
+    @media (max-width: 680px) {
+      nav ul { gap: 1.2rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .edu-card { flex-direction: column; }
+}
+  </style>
+    </head>
+    <body>
+      <nav>
+        <div class="logo">DZ</div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <section id="hero">
+        <div class="hero-avatar">&#128119;</div>
+        <h1>Dawid Ziarno</h1>
+        <p class="tagline">Accounting Student &middot; Electrician Apprentice &middot; Braven Fellow</p>
+    <div class="hero-badges">
+      <span class="badge">&#128205; New Jersey</span>
+      <span class="badge">&#127891; Rutgers Newark</span>
+      <span class="badge">&#127760; Bilingual: EN &amp; PL</span>
+        </div>
+        <div class="btn-group">
+          <a href="#experience" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </section>
+  <section id="about">
+        <div class="container">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Who I Am</h2>
+      <div class="divider"></div>
+      <div class="about-grid">
+            <div class="about-text">
+              <p>I'm a motivated accounting student at Rutgers University-Newark with hands-on experience in the electrical trades and a strong foundation in professional development through the Braven Accelerator Fellowship.</p>
+              <p>I bring a unique combination of technical precision - honed through real-world electrical work - and analytical skills developed through my accounting education. I thrive in fast-paced environments that demand accuracy, teamwork, and clear communication.</p>
+          <p>Fluent in both English and Polish, I'm passionate about solving problems efficiently and delivering results that matter.</p>
+              <div class="about-contact">
+                <a href="mailto:dawidziarno@gmail.com">&#9993; dawidziarno@gmail.com</a>
+                <a href="tel:+12016936573">&#128222; (201) 693-6573</a>
+              </div>
+            </div>
+            <div class="about-highlights">
+              <h3>Quick Highlights</h3>
+              <div class="highlight-item">
+                <span class="highlight-icon">&#9889;</span>
+                <p><strong>50+ Projects</strong> - residential &amp; commercial electrical work with 100% code compliance</p>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">&#128295;</span>
+                <p><strong>20+ Service Calls</strong> - resolved electrical faults in under 30 min on average</p>
+              </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">&#128640;</span>
+            <p><strong>Ahead of Schedule</strong> - helped complete 12 projects 1-2 days early</p>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">&#127919;</span>
+                <p><strong>Braven Fellow</strong> - 14-week leadership &amp; professional development program</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="education">
+        <div class="container">
+          <p class="section-label">Education</p>
+          <h2 class="section-title">Academic Background</h2>
+          <div class="divider"></div>
+          <div class="edu-card">
+            <div>
+              <h3>Rutgers University - Newark, NJ</h3>
+              <p class="degree">Bachelor of Accounting</p>
+          <p style="color:#666; margin-top:0.4rem; font-size:0.93rem;">Building a strong foundation in financial accounting, data analysis, and business strategy.</p>
+        </div>
+        <div class="date">Expected 2027</div>
+          </div>
+        </div>
+      </section>
+      <section id="experience">
+        <div class="container">
+          <p class="section-label">Experience</p>
+          <h2 class="section-title">Work History</h2>
+          <div class="divider"></div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="job-header">
+                <div>
+                  <p class="job-title">Electrician Apprentice</p>
+                  <p class="job-company">Power Lighting and More</p>
+                  <p class="job-location">Garfield, New Jersey</p>
+                </div>
+                <span class="job-date">May-Aug 2024 &amp; Jun-Aug 2025</span>
+              </div>
+              <ul class="job-bullets">
+                <li>Installed and repaired electrical systems for 50+ residential and commercial projects by reading blueprints and following National Electrical Code standards, ensuring 100% code compliance on all inspected jobs.</li>
+                <li>Diagnosed and resolved electrical faults in under 30 minutes on average for 20+ service calls by systematically testing circuits with multimeters and voltage testers, minimizing customer downtime.</li>
+            <li>Collaborated daily with a team of 4 journeyman electricians to complete projects 1-2 days ahead of schedule on 12 occasions by prioritizing tasks and maintaining clear communication.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="job-header">
+                <div>
+                  <p class="job-title">Fellow</p>
+                  <p class="job-company">The Braven Accelerator</p>
+              <p class="job-location">Newark, New Jersey</p>
+            </div>
+                <span class="job-date">Sep-Dec 2025</span>
+              </div>
+              <ul class="job-bullets">
+                <li>Developed workforce skills including leadership, organization, communication, teamwork, and problem-solving by completing a 14-week leadership and professional development course.</li>
+                <li>Designed a career roadmap through a 7-step process involving self-assessment, reflection, role investigation, and evaluation to determine the steps required to achieve career goals.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+      <section id="skills">
+        <div class="container">
+          <p class="section-label">Skills</p>
+          <h2 class="section-title">What I Bring to the Table</h2>
+          <div class="divider"></div>
+          <div class="skills-grid">
+            <div class="skill-card"><div class="skill-icon">&#128202;</div><span>Microsoft Excel</span></div>
+            <div class="skill-card"><div class="skill-icon">&#128269;</div><span>Data Analysis &amp; Problem-Solving</span></div>
+            <div class="skill-card"><div class="skill-icon">&#128208;</div><span>Blueprint Reading &amp; Technical Documentation</span></div>
+        <div class="skill-card"><div class="skill-icon">&#9202;</div><span>Time Management &amp; Meeting Deadlines</span></div>
+        <div class="skill-card"><div class="skill-icon">&#129309;</div><span>Team Collaboration &amp; Customer Communication</span></div>
+        <div class="skill-card"><div class="skill-icon">&#127760;</div><span>Bilingual: English &amp; Polish</span></div>
+          </div>
+    </div>
+      </section>
+  <section id="contact">
+        <div class="container">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title">Let's Connect</h2>
+          <div class="divider"></div>
+          <p>I'm currently open to internship opportunities, part-time roles, and networking. Feel free to reach out!</p>
+          <div class="contact-links">
+            <a href="mailto:dawidziarno@gmail.com" class="contact-link">&#9993; dawidziarno@gmail.com</a>
+            <a href="tel:+12016936573" class="contact-link">&#128222; (201) 693-6573</a>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <p>&#169; 2026 Dawid Ziarno &middot; Built with Claude AI</p>
+      </footer>
+    </body>
+    </html>
